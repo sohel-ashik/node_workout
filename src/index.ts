@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import registerRouter from './routes/user.routes'
 
 dotenv.config();
 
@@ -19,6 +20,9 @@ app.get('/', (req: Request, res: Response) => {
     status: 'Server is running',
   });
 });
+
+// practice task 1 register user in controller/services/model template
+app.use('/api/users', registerRouter);
 
 // Health check endpoint
 app.get('/health', (req: Request, res: Response) => {
