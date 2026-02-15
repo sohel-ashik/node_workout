@@ -39,6 +39,7 @@ export const register = async(
 
         return { id: id_new, email };
     } catch(error){
+        console.error(error);
         throw Error(error instanceof Error ? error.message : String(error));
     }
 

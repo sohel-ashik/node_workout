@@ -8,6 +8,7 @@ export async function readJson<T>(filePath: string): Promise<T> {
 
         return user as T;
     } catch (error) {
+        console.error(error);
         throw Error(error instanceof Error ? error.message : String(error));
     }
 }
@@ -18,6 +19,7 @@ export async function writeJson(filePath: string, data: User[]): Promise<void> {
     try {
         await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
     } catch(error) {
+        console.error(error);
         throw Error(error instanceof Error ? error.message : String(error));
     }
 }
